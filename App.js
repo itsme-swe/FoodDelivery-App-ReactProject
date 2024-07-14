@@ -78,7 +78,8 @@ const Body = () => {
                 <RestCardComponent 
                     image="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/6/27/fe6afdda-d264-438a-80d4-78837536a36e_44507.jpg"
                     resName="Kanha" cuisine="North Indian, Sweets" stars="4.2 stars" time="20 min" 
-                />       
+                />  
+
                 <RestCardComponent
                     image="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/xemfgnlxuwzskxr0h3nt"
                     resName="Sahu Chai" cuisine="Chai, Fast Fooad" stars="4.0 stars" time="30 min"
@@ -86,7 +87,6 @@ const Body = () => {
                      
             </div>
             
-
         </div>
     )
 }
