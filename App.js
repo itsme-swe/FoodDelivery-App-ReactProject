@@ -52,16 +52,30 @@ const styleCard = {
 //🔸Restaurant Card Component
 const RestCardComponent = (props) => {
 
+    const {image, resName, cuisine, stars, time} = props;
+
     return (
+        // <div className="rest-card" style={styleCard}>
+        //     <img
+        //     className="res-logo" 
+        //     alt="res-logo" src={props.image}/>
+        //     <h3 className="rest-card-content">{props.resName}</h3>
+        //     <h4 className="rest-card-content">{props.cuisine}</h4>
+        //     <h5 className="rest-card-content">{props.stars}</h5>
+        //     <h5 className="rest-card-content">{props.time}</h5>
+        // </div>
+
+        //🔸Destructuring the props is the second way to pass props as arguments to components
         <div className="rest-card" style={styleCard}>
             <img
             className="res-logo" 
-            alt="res-logo" src={props.image}/>
-            <h3 className="rest-card-content">{props.resName}</h3>
-            <h4 className="rest-card-content">{props.cuisine}</h4>
-            <h5 className="rest-card-content">{props.stars}</h5>
-            <h5 className="rest-card-content">{props.time}</h5>
+            alt="res-logo" src={image}/>
+            <h3 className="rest-card-content">{resName}</h3>
+            <h4 className="rest-card-content">{cuisine}</h4>
+            <h5 className="rest-card-content">{stars}</h5>
+            <h5 className="rest-card-content">{time}</h5>
         </div>
+     
     )
 }
 
