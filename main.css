@@ -61,6 +61,12 @@
     margin: 5px;
 }
 
+.rest-card-content{
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+}
+
 .rest-card:hover{
     cursor: pointer;
     border: 1px solid black;

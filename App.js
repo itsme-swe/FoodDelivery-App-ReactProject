@@ -56,11 +56,11 @@ const RestCardComponent = (props) => {
         <div className="rest-card" style={styleCard}>
             <img
             className="res-logo" 
-            alt="res-logo" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/6/27/fe6afdda-d264-438a-80d4-78837536a36e_44507.jpg"/>
-            <h3>{props.resName}</h3>
-            <h4>{props.cuisine}</h4>
-            <h5>4.2 stars</h5>
-            <h5>20 mins</h5>
+            alt="res-logo" src={props.image}/>
+            <h3 className="rest-card-content">{props.resName}</h3>
+            <h4 className="rest-card-content">{props.cuisine}</h4>
+            <h5 className="rest-card-content">{props.stars}</h5>
+            <h5 className="rest-card-content">{props.time}</h5>
         </div>
     )
 }
@@ -76,10 +76,12 @@ const Body = () => {
 
             <div className="restaurant-container">
                 <RestCardComponent 
-                    resName="Kanha" cuisine="North Indian, Sweets"
+                    image="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/6/27/fe6afdda-d264-438a-80d4-78837536a36e_44507.jpg"
+                    resName="Kanha" cuisine="North Indian, Sweets" stars="4.2 stars" time="20 min" 
                 />       
                 <RestCardComponent
-                    resName="Sahu Chai" cuisine="Chai, Fast Fooad"
+                    image="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/xemfgnlxuwzskxr0h3nt"
+                    resName="Sahu Chai" cuisine="Chai, Fast Fooad" stars="4.0 stars" time="30 min"
                 />       
                      
             </div>
