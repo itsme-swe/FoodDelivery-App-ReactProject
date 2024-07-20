@@ -44,20 +44,26 @@ const Header = () => {
     )
 };
 
-//🔸Background color for Restaurant cards, we'll be using as inline CSS with the help of {} braces.
-const styleCard = {
-    backgroundColor: "#FFFFF0", 
-};
+
 
 //🔸Restaurant Card Component
 const RestCardComponent = (props) => {
 
-    // const {image, resName, cuisine, stars, time} = props;
-
     const {resData} = props;
+    // const {image, resName, cuisine, stars, time} = props;    // Destructring props
+
+    const {
+        cloudinaryImageId,
+        name, 
+        cuisines,
+        avgRating,
+        } = resData?.info;
+
+    const { slaString } = resData?.info?.sla;
+   
 
     return (
-        // <div className="rest-card" style={styleCard}>
+        // <div className="rest-card">
         //     <img
         //     className="res-logo" 
         //     alt="res-logo" src={props.image}/>
@@ -68,22 +74,25 @@ const RestCardComponent = (props) => {
         // </div>
 
         //🔸Destructuring the props is the second way to pass props as arguments to components
-        <div className="rest-card" style={styleCard}>
+        <div className="rest-card">
+
             <img
             className="res-logo" 
-            alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + resData.info.cloudinaryImageId}/>
-            <h3 className="rest-card-content">{resData.info.name}</h3>
-            <h4 className="rest-card-content">{resData.info.cuisines.join(',')}</h4>
-            <h5 className="rest-card-content">{resData.info.avgRating} stars</h5>
-            <h5 className="rest-card-content">{resData.info.sla.slaString}</h5>
+            alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId}/>
+            <h3 className="rest-card-content">{name}</h3>
+            <h4 className="rest-card-content">{cuisines.join(", ")}</h4>
+            <h5 className="rest-card-content">{avgRating} stars</h5>
+            <h5 className="rest-card-content">{slaString}</h5>
+
         </div>
      
     )
 }
 
 //🔸Data coming from backend through API for every individual restaurant
-const anandjiObj = {
-    "info": {
+const restList = [
+    {
+        "info": {
                       "id": "56623",
                       "name": "Anandji Sweets",
                       "cloudinaryImageId": "64d8ec906c52b7d62aaa47cd38bab13a",
@@ -109,10 +118,9 @@ const anandjiObj = {
                         "iconType": "ICON_TYPE_EMPTY"
                       }
             }
-        };
-
-const gudmishriObj = {
-    "info": {
+},
+    {
+        "info": {
                       "id": "729690",
                       "name": "GudMishri",
                       "cloudinaryImageId": "20c6e89e00a2268a01d057e64ee1ca5c",
@@ -136,10 +144,9 @@ const gudmishriObj = {
                         "iconType": "ICON_TYPE_EMPTY"
                       }
             }
-};
-
-const bombayMisthanObj = {
-    "info": {
+},
+    {
+        "info": {
                       "id": "61560",
                       "name": "Bombay Mishthan Bhandar (BMB)",
                       "cloudinaryImageId": "127d6d2a1a4f3e995fba2c5dd93b574f",
@@ -165,7 +172,9 @@ const bombayMisthanObj = {
                         "iconType": "ICON_TYPE_EMPTY"
                       }
             }          
-};
+}
+]
+
 
 //2️⃣ Body Component
 const Body = () => {
@@ -182,28 +191,28 @@ const Body = () => {
                     image="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2024/6/27/fe6afdda-d264-438a-80d4-78837536a36e_44507.jpg"
                     resName="Kanha" cuisine="North Indian, Sweets" stars="4.2 stars" time="20 min" 
                 />  
-
-                <RestCardComponent
-                    image="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/xemfgnlxuwzskxr0h3nt"
-                    resName="Sahu Chai" cuisine="Chai, Fast Fooad" stars="4.0 stars" time="30 min"
-                /> 
                       
                 <RestCardComponent
                     image="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/d0450ce1a6ba19ea60cd724471ed54a8"
                     resName="Domino's" cuisine="Pizza's, Pastas, Desserts" stars="4.3 stars" time="25 min"
                 /> */}
 
-                <RestCardComponent
-                    resData = {anandjiObj}
+                
+                {/* <RestCardComponent
+                    resData = {restList[0]}
                 />
 
                 <RestCardComponent
-                    resData = {gudmishriObj}
+                    resData = {restList[1]}
                 />
 
                 <RestCardComponent
-                    resData = {bombayMisthanObj}
-                />
+                    resData = {restList[2]}
+                /> */}
+
+                {restList.map((restaurant) => (
+                    < RestCardComponent resData={restaurant} />
+                ))}
 
               
                      
