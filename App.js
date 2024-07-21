@@ -564,7 +564,8 @@ const Body = () => {
 
                 {restList.map((restaurant) => (
                     < RestCardComponent key={restaurant.info.id} resData={restaurant} />    //🔸Passing key as unique ID to each restaurant is good practice
-                ))}
+                ))} 
+                
    
             </div>
             
