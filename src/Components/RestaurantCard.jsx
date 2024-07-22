@@ -1,4 +1,4 @@
-import { CDN_URL } from "../Utils/contants";
+import { CDN_URL } from "../Utils/constants";
 
 const RestCardComponent = (props) => {
 
@@ -31,7 +31,7 @@ const RestCardComponent = (props) => {
 
             <img
             className="res-logo" 
-            alt="res-logo" src={ + cloudinaryImageId}/>
+            alt="res-logo" src={ CDN_URL + cloudinaryImageId}/>
             <h3 className="rest-card-content">{name}</h3>
             <h4 className="rest-card-content">{cuisines.join(", ")}</h4>
             <h5 className="rest-card-content">{avgRating} stars</h5>

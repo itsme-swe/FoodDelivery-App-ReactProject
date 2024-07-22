@@ -1,5 +1,5 @@
-import { LOGO_URL } from "../Utils/contants";
-import { LOGO_CART } from "../Utils/contants";
+import { LOGO_URL } from "../Utils/constants";
+import { LOGO_CART } from "../Utils/constants";
 
 const Header = () => {
     return (
