@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const Body = () => {
 
-    const [listOfRestaurants, setListOfRestaurants] = useState(restList);
+    const [ listOfRestaurants, setListOfRestaurants ] = useState(restList);
 
     return (
         <div className="body-container">
@@ -17,7 +17,7 @@ const Body = () => {
 
                     const filteredList = listOfRestaurants.filter(
                         (res) => res.info.avgRating > 3.5);
-                        
+
                     setListOfRestaurants(filteredList);
                 }}>  
                     Top Rated Restaurants
