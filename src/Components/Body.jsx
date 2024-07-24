@@ -1,13 +1,28 @@
 import RestCardComponent from "./RestaurantCard";
 import restList from "../Utils/apiData";
+import { useState } from "react";
+
 
 
 const Body = () => {
+
+    const [listOfRestaurants, setListOfRestaurants] = useState(restList);
+
     return (
         <div className="body-container">
 
-            <div className="search-bar">
-                Search
+            <div className="filter">
+                <button className="filter-btn" 
+                onClick={() => {
+
+                    const filteredList = listOfRestaurants.filter(
+                        (res) => res.info.avgRating > 3.5);
+                        
+                    setListOfRestaurants(filteredList);
+                }}>  
+                    Top Rated Restaurants
+                </button>    
+                 
             </div>
 
             <div className="restaurant-container">
@@ -35,7 +50,7 @@ const Body = () => {
                     resData = {restList[2]}
                 /> */}
 
-                {restList.map((restaurant) => (
+                {listOfRestaurants.map((restaurant) => (
                     < RestCardComponent key={restaurant.info.id} resData={restaurant} />    //🔸Passing key as unique ID to each restaurant is good practice
                 ))} 
                 
@@ -47,3 +62,7 @@ const Body = () => {
 };
 
 export default Body;
+
+/*
+◽ In line number 10 add eventListner inside JSX we pass attribute "onClick" which takes a callback function as input. 
+ */

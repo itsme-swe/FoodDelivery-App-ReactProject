@@ -19,3 +19,8 @@
  *      -- Contact Us
  * 
  */
+
+## React Hooks
+Normal JavaScript utility functions. Two most important Hooks are:
+
+**1. useState() :** Use to generate state variables in react
